@@ -1,0 +1,11 @@
+*{
+    background-color: #ffff;
+}
+.contenedor{
+    background-color: rgb(124, 124, 124);
+    height: 100px;
+    width: 50px;
+    float: left;
+    border-color: blue;
+    margin: 5px;
+}
