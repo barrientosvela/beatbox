@@ -3,9 +3,11 @@
 }
 .contenedor{
     background-color: rgb(124, 124, 124);
-    height: 100px;
-    width: 50px;
+    height: 400px;
+    width: 300px;
     float: left;
+    border: solid 1px;
+    border-radius: 5px;
     border-color: blue;
     margin: 5px;
 }
