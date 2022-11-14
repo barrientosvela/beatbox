@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styleRegistro.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Registro</title>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="../images/beatbox.png" alt="">
+    </div>
+    <form id="formCompleto">
+        <fieldset id="datosPers">
+            <div class="centro">
+                <p>Nombre:</p>
+                <input type="text" class="campos" name="nombre" required pattern="[a-zA-Z]{4,15}" />
+                <p>Apellidos:</p>
+                <input type="text" class="campos" name="apellidos" required pattern="[a-zA-Z ]{5,50}" />
+                <p>Fecha de nacimiento:</p>
+                <input id="anio" type="date" class="campos" name="anio" required />
+                <p>DNI:</p>
+                <input type="text" id="dni" class="campos" required pattern="^[0-9]{8}[- ]?[A-Z]{1}$"
+                    onblur="validaDNI()" />
+                <img id="checkDNI" class="check" src="images/comprobar.png" alt="check">
+                <p>Email:</p>
+                <input type="mail" id="email" class="campos" placeholder="ejemplo@ejemplo.com" required
+                    pattern="^[a-zA-Z0-9]{1,64}\S+@\D\S+\.\D\S+$" onblur="validaEmail()" />
+                <img id="checkEmail" class="check" src="images/comprobar.png" alt="check">
+                <p>Teléfono:</p>
+                <input id="tlf" class="campos" type="text" onchange="" name="Telefono" placeholder="999 999 999"
+                    required pattern="^[0-9]{3}[\s-]?[0-9]{3}[\s-]?[0-9]{3}$" onblur="validaTlf()" />
+                <img id="checkTlf" class="check" src="images/comprobar.png" alt="check">
+            </div>
+            <input class="icon-derecha" type="image" onclick="muestraCredenciales()" src="images/flecha-derecha.png"
+                alt="flecha derecha" value="validar">
+        </fieldset>
+
+        <fieldset id="credenciales">
+            <div class="centro">
+                <p>Usuario</p>
+                <input type="text" name="usuario" placeholder="Nombre de usuario" minlength="5" maxlength="40" required
+                    pattern="[A-Za-z0-9]+" />
+                <p>Contraseña</p>
+                <input id="c1" type="text" name="Contrasenia" placeholder="Contraseña" maxlength="35" required />
+                <img id="checkPass" class="check" src="images/comprobar.png" alt="check">
+                <p>Repite Contraseña</p>
+                <input id="c2" type="text" name="Contrasenia2" placeholder="Repite Contraseña" maxlength="35" required
+                    onblur="validaContrasena()" />
+            </div>
+            <input class="icon-derecha" type="image" onclick="muestraCuenta()" src="images/flecha-derecha.png"
+                alt="flecha derecha" value="validar">
+            <input class="icon-izq" type="image" onclick="atrasCredenciales()" src="images/flecha-izq.png"
+                alt="flecha izquierda" value="atras">
+        </fieldset>
+
+        <fieldset id="cuenta">
+            <div class="centro">
+                <p>IBAN</p>
+                <input id="iban" type="text" name="IBAN" placeholder="ES21 14650100722030876293" required
+                    onblur="validaCuenta()" />
+                <p>SWIFT</p>
+                <input id="swift" type="text" name="SWIFT" placeholder="AAAAESMMXXX" required />
+            </div>
+            <input class="icon-derecha" type="image" onclick="enviar()" src="images/cheque.png" alt="flecha derecha"
+                value="enviar">
+            <input class="icon-izq" type="image" onclick="atrasCuenta()" src="images/flecha-izq.png"
+                alt="flecha izquierda" value="atras">
+        </fieldset>
+    </form>
+    <script src="../js/scriptRegistro.js"></script>
+</body>
+
+</html>
