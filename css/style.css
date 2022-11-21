@@ -30,7 +30,13 @@ body {
 
 #c1 {
     height: 300px;
-    width: 40%;
+    width: 300px;
+}
+
+#c1 img {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
 }
 
 #c2 {
@@ -39,8 +45,10 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
-.text{
+
+.text {
     width: 80%;
     margin-top: 50px;
 }
@@ -95,7 +103,7 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    
+
 }
 
 span {
@@ -147,17 +155,20 @@ span {
 .btn-registro:hover #linea4 {
     top: 0;
 }
-.footer{
+
+.footer {
     height: 200px;
     background: linear-gradient(to bottom, #ffffff, #a0a0a0);
 }
-.footer img{
+
+.footer img {
     height: 100px;
     float: right;
     margin-top: 80px;
     margin-right: 40px;
 }
-.footer p{
+
+.footer p {
     margin-top: 60px;
     padding: 50px;
     float: left;

@@ -3,6 +3,8 @@ const apeExp = new RegExp("^[a-zA-Z ]{5,50}$");
 const dniExp = new RegExp("^[0-9]{8}[- ]?[A-Z]{1}$");
 const emailExp = new RegExp("^[a-zA-Z0-9]{1,64}\\S+@\\D\\S+\\.\\D\\S+$");
 const tlfExp = new RegExp("^[0-9]{3}[\\s-]?[0-9]{3}[\\s-]?[0-9]{3}$");
+const userExp = new RegExp("^[A-Za-z0-9]+$");
+
 var valido = 0;
 
 $("#nombre").blur(() => {
@@ -60,18 +62,59 @@ $("#tlf").blur(() => {
         valido++;
     }
 });
-$("#icon-derecha").click( () => {
-        $("#datosPers").css("display", "none");
-        $("#credenciales").css("display", "block");
+$("#icon-derecha").click(() => {
+    // if (valido == 5){
+    $("#datosPers").fadeOut(() => {
+        $("#credenciales").fadeIn(1000);
+    });
+    //}        
+});
+$("#usuario").blur(() => {
+    let usuario = $("#usuario").val();
+
+    if (!userExp.test(usuario)) {
+        $("#checkUser").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkUser").prop("src", "../images/check.png");
+        valido++;
+    }
+});
+$("#contrasenia1").blur(() => {
+    let contrasenia = $("#contrasenia1").val();
+
+    if (!userExp.test(contrasenia)) {
+        $("#checkPass").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkPass").prop("src", "../images/check.png");
+        valido++;
+    }
+});
+$("#contrasenia2").blur(() => {
+    let contrasenia1 = $("#contrasenia1").val();
+    let contrasenia2 = $("#contrasenia2").val();
+    if (contrasenia1 != contrasenia2) {
+        $("#checkPass2").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkPass2").prop("src", "../images/check.png");
+        valido++;
+    }
 });
 
-
-
-
-
-
-
-
+$("#atras1").click(() => {
+    $("#credenciales").fadeOut(() => {
+        $("#datosPers").fadeIn(1000);
+    });      
+});
+$("#derecha2").click(() => {
+    // if (valido == 5){
+    $("#credenciales").fadeOut(() => {
+        $("#cuenta").fadeIn(1000);
+    });
+    //}        
+});
 
 function validaCuenta() {
 
@@ -79,12 +122,11 @@ function validaCuenta() {
     var entidad_bancaria;
     var IBAN_REGEX = /^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9 ]{4}[0-9 ]{7}([a-zA-Z0-9 ]?){0,16}/;
     if (!iban.match(IBAN_REGEX)) {
-        console.log("El IBAN introducido no es correcto");
+        $("#checkIban").prop("src", "../images/equis.png");
     } else {
         entidad_bancaria = iban.substring(4, 8);
-        console.log(entidad_bancaria);
+        $("#checkIban").prop("src", "../images/check.png");
         var swift = genera_swift(entidad_bancaria);
-        console.log(swift);
         var swiftinput = document.getElementById("swift");
         swiftinput.value = swift;
     }
@@ -438,9 +480,15 @@ function genera_swift(entidad) {
 }
 $("#iban").blur(validaCuenta());
 
-$(".icon-derecha").click(function () {
+$("#atras2").click(() => {
+    $("#cuenta").fadeOut(() => {
+        $("#credenciales").fadeIn(1000);
+    });      
+});
+
+$("#enviar").click(function () {
     // si campos correctos crea objeto y lo guarda en localstorage
-    let nom = document.getElementById("nombre").value;
-    var user = { 'nombre': nom };
-    localStorage.setItem('user', JSON.stringify(user));
+    let nom = $("#nombre").val();
+    var user = 
+    localStorage.setItem('user', JSON.stringify({ 'nombre': nom }));
 });

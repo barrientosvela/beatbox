@@ -17,59 +17,62 @@
         <p>Beatbox</p>
     </header>
     <form id="formCompleto">
-        <div id="datosPers">
-            <div class="centro">
+        <fieldset id="datosPers">
+            <div class="formCamp">
                 <p>Nombre:</p>
                 <input type="text" class="campos" id="nombre" />
-                <img id="checkNombre" class="check" >
+                <img id="checkNombre" class="check">
                 <p>Apellidos:</p>
                 <input type="text" class="campos" id="apellidos" />
-                <img id="checkApellidos" class="check" >
+                <img id="checkApellidos" class="check">
                 <p>Fecha de nacimiento:</p>
                 <input id="anio" type="date" class="campos" name="anio" />
                 <p>DNI:</p>
                 <input type="text" id="dni" class="campos" />
-                <img id="checkDNI" class="check" >
+                <img id="checkDNI" class="check">
                 <p>Email:</p>
                 <input type="mail" id="email" class="campos" placeholder="ejemplo@ejemplo.com" />
-                <img id="checkEmail" class="check" >
+                <img id="checkEmail" class="check">
                 <p>Teléfono:</p>
                 <input id="tlf" class="campos" type="text" name="Telefono" placeholder="999 999 999" />
-                <img id="checkTlf" class="check" >
+                <img id="checkTlf" class="check">
             </div>
-            <input id="icon-derecha" type="image" src="../images/flecha.png"
-                alt="flecha derecha" value="validar">
-        </div>
+            <nav class="flechas">
+                <img id="derecha1" src="../images/flecha.png" alt="flecha derecha">
+            </nav>
+        </fieldset>
 
-        <div id="credenciales">
-            <div class="centro">
+        <fieldset id="credenciales">
+            <div class="formCamp">
                 <p>Usuario</p>
-                <input type="text" name="usuario" placeholder="Nombre de usuario" minlength="5" maxlength="40"
-                    pattern="[A-Za-z0-9]+" />
+                <input type="text" id="usuario" placeholder="Nombre de usuario" maxlength="40" />
+                <img id="checkUser" class="check">
                 <p>Contraseña</p>
-                <input id="c1" type="text" name="Contrasenia" placeholder="Contraseña" maxlength="35" />
-                <img id="checkPass" class="check" src="images/comprobar.png" alt="check">
+                <input id="contrasenia1" type="text" placeholder="Contraseña" maxlength="40" />
+                <img id="checkPass" class="check">
                 <p>Repite Contraseña</p>
-                <input id="c2" type="text" name="Contrasenia2" placeholder="Repite Contraseña" maxlength="35" />
+                <input id="contarsenia2" type="text" placeholder="Repite Contraseña" maxlength="40" />
+                <img id="checkPass2" class="check">
             </div>
-            <input class="icon-derecha" type="image"  src="images/flecha-derecha.png"
-                alt="flecha derecha" value="validar">
-            <input class="icon-izq" type="image"  src="images/flecha-izq.png"
-                alt="flecha izquierda" value="atras">
-        </div>
+            <nav class="flechas">
+                <img id="derecha2" src="../images/flecha.png" alt="flecha derecha">
+                <img id="atras1" src="../images/atras.png" alt="flecha izquierda">
+            </nav>
+        </fieldset>
 
-        <div id="cuenta">
-            <div class="centro">
+        <fieldset id="cuenta">
+            <div class="formCamp">
                 <p>IBAN</p>
                 <input id="iban" type="text" placeholder="ES21 14650100722030876293" />
+                <img id="checkIban" class="check">
                 <p>SWIFT</p>
                 <input id="swift" type="text" name="SWIFT" placeholder="AAAAESMMXXX" />
             </div>
-            <input class="btn-enviar" type="image" src="images/cheque.png" alt="flecha derecha"
-                value="enviar">
-            <input class="icon-izq" type="image"  src="images/flecha-izq.png"
-                alt="flecha izquierda" value="atras">
-        </div>
+            <nav class="flechas">
+                <img id="enviar" src="../images/Enviar.png" alt="flecha derecha">
+                <img id="atras2" src="../images/atras.png" alt="flecha izquierda">
+            </nav>
+        </fieldset>
     </form>
     <div class="footer">
         <p>Parte del texto contenido en esta web esta generado con GPT-3 un modelo IA aún en fase beta <a
