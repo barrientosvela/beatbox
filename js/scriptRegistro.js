@@ -1,31 +1,92 @@
+const nombreExp = new RegExp("^[a-zA-Z]{4,15}$");
+const apeExp = new RegExp("^[a-zA-Z ]{5,50}$");
 const dniExp = new RegExp("^[0-9]{8}[- ]?[A-Z]{1}$");
-const emailExp = new RegExp("^[a-zA-Z0-9]{1,64}\S+@\D\S+\.\D\S+$");
-const tlfExp = new RegExp("^[0-9]{3}[\s-]?[0-9]{3}[\s-]?[0-9]{3}$");
+const emailExp = new RegExp("^[a-zA-Z0-9]{1,64}\\S+@\\D\\S+\\.\\D\\S+$");
+const tlfExp = new RegExp("^[0-9]{3}[\\s-]?[0-9]{3}[\\s-]?[0-9]{3}$");
+var valido = 0;
 
+$("#nombre").blur(() => {
+    let nombre = $("#nombre").val();
 
-$("#dni").blur( () => {
-    let dni = $("#dni").val();
-    
-    if (!dniExp.test(dni)) {
-        alert('DNI incorrecto');
-    }else{
-        
+    if (!nombreExp.test(nombre)) {
+        $("#checkNombre").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkNombre").prop("src", "../images/check.png");
+        valido++;
     }
 });
+$("#apellidos").blur(() => {
+    let apellidos = $("#apellidos").val();
+
+    if (!apeExp.test(apellidos)) {
+        $("#checkApellidos").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkApellidos").prop("src", "../images/check.png");
+        valido++;
+    }
+});
+$("#dni").blur(() => {
+    let dni = $("#dni").val();
+
+    if (!dniExp.test(dni)) {
+        $("#checkDNI").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkDNI").prop("src", "../images/check.png");
+        valido++;
+    }
+});
+$("#email").blur(() => {
+    let email = $("#email").val();
+
+    if (!emailExp.test(email)) {
+        $("#checkEmail").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkEmail").prop("src", "../images/check.png");
+        valido++;
+    }
+});
+$("#tlf").blur(() => {
+    let tlf = $("#tlf").val();
+
+    if (!tlfExp.test(tlf)) {
+        $("#checkTlf").prop("src", "../images/equis.png");
+        valido--;
+    } else {
+        $("#checkTlf").prop("src", "../images/check.png");
+        valido++;
+    }
+});
+$("#icon-derecha").click( () => {
+        $("#datosPers").css("display", "none");
+        $("#credenciales").css("display", "block");
+});
+
+
+
+
+
+
+
+
+
 function validaCuenta() {
-        
+
     let iban = $("#iban").val();
     var entidad_bancaria;
     var IBAN_REGEX = /^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9 ]{4}[0-9 ]{7}([a-zA-Z0-9 ]?){0,16}/;
     if (!iban.match(IBAN_REGEX)) {
-            alert("El IBAN introducido no es correcto");
+        console.log("El IBAN introducido no es correcto");
     } else {
-            entidad_bancaria = iban.substring(4, 8);
-            console.log(entidad_bancaria);
-            var swift = genera_swift(entidad_bancaria);
-            console.log(swift);
-            var swiftinput = document.getElementById("swift");
-            swiftinput.value = swift;
+        entidad_bancaria = iban.substring(4, 8);
+        console.log(entidad_bancaria);
+        var swift = genera_swift(entidad_bancaria);
+        console.log(swift);
+        var swiftinput = document.getElementById("swift");
+        swiftinput.value = swift;
     }
 }
 function genera_swift(entidad) {
@@ -375,11 +436,11 @@ function genera_swift(entidad) {
     swift["9000"] = "ESPBESMMXXX";
     return swift[entidad];
 }
-$("#iban").blur( validaCuenta());
+$("#iban").blur(validaCuenta());
 
-$(".icon-derecha").click(function (){
+$(".icon-derecha").click(function () {
     // si campos correctos crea objeto y lo guarda en localstorage
     let nom = document.getElementById("nombre").value;
-    var user = {'nombre': nom};
+    var user = { 'nombre': nom };
     localStorage.setItem('user', JSON.stringify(user));
 });

@@ -17,29 +17,31 @@
         <p>Beatbox</p>
     </header>
     <form id="formCompleto">
-        <fieldset id="datosPers">
+        <div id="datosPers">
             <div class="centro">
                 <p>Nombre:</p>
-                <input type="text" class="campos" id="nombre" pattern="[a-zA-Z]{4,15}" />
+                <input type="text" class="campos" id="nombre" />
+                <img id="checkNombre" class="check" >
                 <p>Apellidos:</p>
-                <input type="text" class="campos" name="apellidos" pattern="[a-zA-Z ]{5,50}" />
+                <input type="text" class="campos" id="apellidos" />
+                <img id="checkApellidos" class="check" >
                 <p>Fecha de nacimiento:</p>
                 <input id="anio" type="date" class="campos" name="anio" />
                 <p>DNI:</p>
                 <input type="text" id="dni" class="campos" />
-                <!-- <img id="checkDNI" class="check" src="images/comprobar.png" alt="check"> -->
+                <img id="checkDNI" class="check" >
                 <p>Email:</p>
                 <input type="mail" id="email" class="campos" placeholder="ejemplo@ejemplo.com" />
-                <!-- <img id="checkEmail" class="check" src="images/comprobar.png" alt="check"> -->
+                <img id="checkEmail" class="check" >
                 <p>Teléfono:</p>
-                <input id="tlf" class="campos" type="text" onchange="" name="Telefono" placeholder="999 999 999" />
-                <!-- <img id="checkTlf" class="check" src="images/comprobar.png" alt="check"> -->
+                <input id="tlf" class="campos" type="text" name="Telefono" placeholder="999 999 999" />
+                <img id="checkTlf" class="check" >
             </div>
-            <input class="icon-derecha" type="image" onclick="muestraCredenciales()" src="images/flecha-derecha.png"
+            <input id="icon-derecha" type="image" src="../images/flecha.png"
                 alt="flecha derecha" value="validar">
-        </fieldset>
+        </div>
 
-        <fieldset id="credenciales">
+        <div id="credenciales">
             <div class="centro">
                 <p>Usuario</p>
                 <input type="text" name="usuario" placeholder="Nombre de usuario" minlength="5" maxlength="40"
@@ -48,27 +50,26 @@
                 <input id="c1" type="text" name="Contrasenia" placeholder="Contraseña" maxlength="35" />
                 <img id="checkPass" class="check" src="images/comprobar.png" alt="check">
                 <p>Repite Contraseña</p>
-                <input id="c2" type="text" name="Contrasenia2" placeholder="Repite Contraseña" maxlength="35"
-                    onblur="validaContrasena()" />
+                <input id="c2" type="text" name="Contrasenia2" placeholder="Repite Contraseña" maxlength="35" />
             </div>
-            <input class="icon-derecha" type="image" onclick="muestraCuenta()" src="images/flecha-derecha.png"
+            <input class="icon-derecha" type="image"  src="images/flecha-derecha.png"
                 alt="flecha derecha" value="validar">
-            <input class="icon-izq" type="image" onclick="atrasCredenciales()" src="images/flecha-izq.png"
+            <input class="icon-izq" type="image"  src="images/flecha-izq.png"
                 alt="flecha izquierda" value="atras">
-        </fieldset>
+        </div>
 
-        <fieldset id="cuenta">
+        <div id="cuenta">
             <div class="centro">
                 <p>IBAN</p>
                 <input id="iban" type="text" placeholder="ES21 14650100722030876293" />
                 <p>SWIFT</p>
                 <input id="swift" type="text" name="SWIFT" placeholder="AAAAESMMXXX" />
             </div>
-            <input class="btn-enviar" type="image" onclick="enviar()" src="images/cheque.png" alt="flecha derecha"
+            <input class="btn-enviar" type="image" src="images/cheque.png" alt="flecha derecha"
                 value="enviar">
-            <input class="icon-izq" type="image" onclick="atrasCuenta()" src="images/flecha-izq.png"
+            <input class="icon-izq" type="image"  src="images/flecha-izq.png"
                 alt="flecha izquierda" value="atras">
-        </fieldset>
+        </div>
     </form>
     <div class="footer">
         <p>Parte del texto contenido en esta web esta generado con GPT-3 un modelo IA aún en fase beta <a
