@@ -4,6 +4,7 @@ const dniExp = new RegExp("^[0-9]{8}[- ]?[A-Z]{1}$");
 const emailExp = new RegExp("^[a-zA-Z0-9]{1,64}\\S+@\\D\\S+\\.\\D\\S+$");
 const tlfExp = new RegExp("^[0-9]{3}[\\s-]?[0-9]{3}[\\s-]?[0-9]{3}$");
 const userExp = new RegExp("^[A-Za-z0-9]+$");
+const ibanExp = new RegExp("^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9 ]{4}[0-9 ]{7}([a-zA-Z0-9 ]?){0,16}$");
 
 var valido = 0;
 
@@ -62,12 +63,12 @@ $("#tlf").blur(() => {
         valido++;
     }
 });
-$("#icon-derecha").click(() => {
-    // if (valido == 5){
-    $("#datosPers").fadeOut(() => {
-        $("#credenciales").fadeIn(1000);
-    });
-    //}        
+$("#derecha1").click(() => {
+    //if (valido == 5) {
+        $("#datosPers").fadeOut(() => {
+            $("#credenciales").fadeIn(1000);
+        });
+    //}
 });
 $("#usuario").blur(() => {
     let usuario = $("#usuario").val();
@@ -80,8 +81,8 @@ $("#usuario").blur(() => {
         valido++;
     }
 });
-$("#contrasenia1").blur(() => {
-    let contrasenia = $("#contrasenia1").val();
+$("#password1").blur(() => {
+    let contrasenia = $("#password1").val();
 
     if (!userExp.test(contrasenia)) {
         $("#checkPass").prop("src", "../images/equis.png");
@@ -91,9 +92,9 @@ $("#contrasenia1").blur(() => {
         valido++;
     }
 });
-$("#contrasenia2").blur(() => {
-    let contrasenia1 = $("#contrasenia1").val();
-    let contrasenia2 = $("#contrasenia2").val();
+$("#password2").blur(() => {
+    let contrasenia1 = $("#password1").val();
+    let contrasenia2 = $("#password2").val();
     if (contrasenia1 != contrasenia2) {
         $("#checkPass2").prop("src", "../images/equis.png");
         valido--;
@@ -106,7 +107,7 @@ $("#contrasenia2").blur(() => {
 $("#atras1").click(() => {
     $("#credenciales").fadeOut(() => {
         $("#datosPers").fadeIn(1000);
-    });      
+    });
 });
 $("#derecha2").click(() => {
     // if (valido == 5){
@@ -116,21 +117,76 @@ $("#derecha2").click(() => {
     //}        
 });
 
-function validaCuenta() {
-
+$("#iban").blur(() => {
     let iban = $("#iban").val();
-    var entidad_bancaria;
-    var IBAN_REGEX = /^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9 ]{4}[0-9 ]{7}([a-zA-Z0-9 ]?){0,16}/;
-    if (!iban.match(IBAN_REGEX)) {
+
+    if (!ibanExp.test(iban)) {
         $("#checkIban").prop("src", "../images/equis.png");
+        valido--;
     } else {
-        entidad_bancaria = iban.substring(4, 8);
         $("#checkIban").prop("src", "../images/check.png");
+        var entidad_bancaria = iban.substring(4, 8);
         var swift = genera_swift(entidad_bancaria);
         var swiftinput = document.getElementById("swift");
         swiftinput.value = swift;
+        valido++;
     }
-}
+});
+
+$("#atras2").click(() => {
+    $("#cuenta").fadeOut(() => {
+        $("#credenciales").fadeIn(1000);
+    });
+});
+$("#derecha3").click(() => {
+    // if (valido == 5){
+    $("#cuenta").fadeOut(() => {
+        $("#subscricion").fadeIn(1000);
+    });
+    //}        
+});
+
+$("#atras3").click(() => {
+    $("#subscricion").fadeOut(() => {
+        $("#cuenta").fadeIn(1000);
+    });
+});
+
+$("#plan1").click(()=> {
+    $("#plan1img").css("border", "solid 5px red");
+    $("#plan1back").css("border", "solid 5px red");
+    $("#plan2img").css("border", "none");
+    $("#plan2back").css("border", "none");
+    $("#plan3img").css("border", "none");
+    $("#plan3back").css("border", "none");
+});
+$("#plan2").click(()=> {
+    $("#plan1img").css("border", "none");
+    $("#plan1back").css("border", "none");
+    $("#plan2img").css("border", "solid 5px red");
+    $("#plan2back").css("border", "solid 5px red");
+    $("#plan3img").css("border", "none");
+    $("#plan3back").css("border", "none");
+});
+$("#plan3").click(()=> {
+    $("#plan1img").css("border", "none");
+    $("#plan1back").css("border", "none");
+    $("#plan2img").css("border", "none");
+    $("#plan2back").css("border", "none");
+    $("#plan3img").css("border", "solid 5px red");
+    $("#plan3back").css("border", "solid 5px red");
+});
+
+$("#enviar").click(function () {
+    $("#cuenta").fadeOut(() => {
+        $("#subscricion").fadeIn(1000);
+    });
+    // si campos correctos crea objeto y lo guarda en localstorage
+    let nom = $("#nombre").val();
+    var user = { 'nombre': nom }
+        localStorage.setItem('user', JSON.stringify(user));
+});
+
 function genera_swift(entidad) {
     var swift = [];
     swift["0001"] = "BSABESBBXXX";
@@ -478,17 +534,4 @@ function genera_swift(entidad) {
     swift["9000"] = "ESPBESMMXXX";
     return swift[entidad];
 }
-$("#iban").blur(validaCuenta());
 
-$("#atras2").click(() => {
-    $("#cuenta").fadeOut(() => {
-        $("#credenciales").fadeIn(1000);
-    });      
-});
-
-$("#enviar").click(function () {
-    // si campos correctos crea objeto y lo guarda en localstorage
-    let nom = $("#nombre").val();
-    var user = 
-    localStorage.setItem('user', JSON.stringify({ 'nombre': nom }));
-});
