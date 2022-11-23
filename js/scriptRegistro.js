@@ -1,3 +1,4 @@
+
 const nombreExp = new RegExp("^[a-zA-Z]{4,15}$");
 const apeExp = new RegExp("^[a-zA-Z ]{5,50}$");
 const dniExp = new RegExp("^[0-9]{8}[- ]?[A-Z]{1}$");
@@ -118,6 +119,7 @@ $("#derecha2").click(() => {
     });
     //}        
 });
+
 
 $("#iban").blur(() => {
     let iban = $("#iban").val();
