@@ -1,33 +1,30 @@
 
-const nombreExp = new RegExp("^[a-zA-Z]{4,15}$");
-const apeExp = new RegExp("^[a-zA-Z ]{5,50}$");
+const apeExp = new RegExp("^[a-zA-Z ]{4,50}$");
 const dniExp = new RegExp("^[0-9]{8}[- ]?[A-Z]{1}$");
 const emailExp = new RegExp("^[a-zA-Z0-9]{1,64}\\S+@\\D\\S+\\.\\D\\S+$");
 const tlfExp = new RegExp("^[0-9]{3}[\\s-]?[0-9]{3}[\\s-]?[0-9]{3}$");
 const userExp = new RegExp("^[A-Za-z0-9]+$");
 const ibanExp = new RegExp("^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9 ]{4}[0-9 ]{7}([a-zA-Z0-9 ]?){0,16}$");
+const nombreExp = new RegExp("^[a-zA-Z]{4,15}$");
 
-var valido = 0;
+var valido = false;
 
-function valNombre(){
+$("#nombre").blur(() => {
     let nombre = $("#nombre").val();
 
     if (!nombreExp.test(nombre)) {
         $("#checkNombre").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkNombre").prop("src", "../images/check.png");
         valido++;
     }
-}
-$("#nombre").blur(valNombre());//pureba--------
+});
 
 $("#apellidos").blur(() => {
     let apellidos = $("#apellidos").val();
 
     if (!apeExp.test(apellidos)) {
         $("#checkApellidos").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkApellidos").prop("src", "../images/check.png");
         valido++;
@@ -38,7 +35,6 @@ $("#dni").blur(() => {
 
     if (!dniExp.test(dni)) {
         $("#checkDNI").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkDNI").prop("src", "../images/check.png");
         valido++;
@@ -49,7 +45,6 @@ $("#email").blur(() => {
 
     if (!emailExp.test(email)) {
         $("#checkEmail").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkEmail").prop("src", "../images/check.png");
         valido++;
@@ -60,25 +55,23 @@ $("#tlf").blur(() => {
 
     if (!tlfExp.test(tlf)) {
         $("#checkTlf").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkTlf").prop("src", "../images/check.png");
         valido++;
     }
 });
 $("#derecha1").click(() => {
-    //if (valido == 5) {
+    if (valido >= 5) {
         $("#datosPers").fadeOut(() => {
             $("#credenciales").fadeIn(1000);
         });
-    //}
+    }
 });
 $("#usuario").blur(() => {
     let usuario = $("#usuario").val();
 
     if (!userExp.test(usuario)) {
         $("#checkUser").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkUser").prop("src", "../images/check.png");
         valido++;
@@ -89,7 +82,6 @@ $("#password1").blur(() => {
 
     if (!userExp.test(contrasenia)) {
         $("#checkPass").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkPass").prop("src", "../images/check.png");
         valido++;
@@ -100,7 +92,6 @@ $("#password2").blur(() => {
     let contrasenia2 = $("#password2").val();
     if (contrasenia1 != contrasenia2) {
         $("#checkPass2").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkPass2").prop("src", "../images/check.png");
         valido++;
@@ -113,11 +104,11 @@ $("#atras1").click(() => {
     });
 });
 $("#derecha2").click(() => {
-    // if (valido == 5){
-    $("#credenciales").fadeOut(() => {
-        $("#cuenta").fadeIn(1000);
-    });
-    //}        
+    if (valido >= 8) {
+        $("#credenciales").fadeOut(() => {
+            $("#cuenta").fadeIn(1000);
+        });
+    }
 });
 
 
@@ -126,7 +117,6 @@ $("#iban").blur(() => {
 
     if (!ibanExp.test(iban)) {
         $("#checkIban").prop("src", "../images/equis.png");
-        valido--;
     } else {
         $("#checkIban").prop("src", "../images/check.png");
         var entidad_bancaria = iban.substring(4, 8);
@@ -143,11 +133,11 @@ $("#atras2").click(() => {
     });
 });
 $("#derecha3").click(() => {
-    // if (valido == 5){
-    $("#cuenta").fadeOut(() => {
-        $("#subscricion").fadeIn(1000);
-    });
-    //}        
+    if (valido >= 9) {
+        $("#cuenta").fadeOut(() => {
+            $("#subscricion").fadeIn(1000);
+        });
+    }
 });
 
 $("#atras3").click(() => {
@@ -156,37 +146,32 @@ $("#atras3").click(() => {
     });
 });
 
-$("#plan1").click(()=> {
-    $("#plan1img").css("border", "solid 5px red");
-    $("#plan1back").css("border", "solid 5px red");
-    $("#plan2img").css("border", "none");
-    $("#plan2back").css("border", "none");
-    $("#plan3img").css("border", "none");
-    $("#plan3back").css("border", "none");
-});
-$("#plan2").click(()=> {
-    $("#plan1img").css("border", "none");
-    $("#plan1back").css("border", "none");
-    $("#plan2img").css("border", "solid 5px red");
-    $("#plan2back").css("border", "solid 5px red");
-    $("#plan3img").css("border", "none");
-    $("#plan3back").css("border", "none");
-});
-$("#plan3").click(()=> {
-    $("#plan1img").css("border", "none");
-    $("#plan1back").css("border", "none");
-    $("#plan2img").css("border", "none");
-    $("#plan2back").css("border", "none");
-    $("#plan3img").css("border", "solid 5px red");
-    $("#plan3back").css("border", "solid 5px red");
-});
-
 $("#enviar").click(function () {
-    $("#cuenta").fadeOut(() => {
-        $("#subscricion").fadeIn(1000);
-    });
     // si campos correctos crea objeto y lo guarda en localstorage
-    let nom = $("#nombre").val();
-    var user = { 'nombre': nom }
-        localStorage.setItem('user', JSON.stringify(user));
+    if (sub != 0) {
+        let nom = $("#nombre").val();
+        let apellidos = $("#apellidos").val();
+        let dni = $("#dni").val();
+        let email = $("#email").val();
+        let tlf = $("#tlf").val();
+        let usuario = $("#usuario").val();
+        let contrasenia = $("#password1").val();
+        let iban = $("#iban").val();
+
+        var user = {
+            'nombre': nom,
+            'apellidos': apellidos,
+            'dni': dni,
+            'email': email,
+            'telefono': tlf,
+            'usuario': usuario,
+            'contrasenia': contrasenia,
+            'iban': iban,
+            'precio': precio
+        }
+        localStorage.setItem('user', JSON.stringify(user));   
+        window.location.href = "../html/pago.html";     
+    }else{
+        alert("Debe elegir una subscripción");
+    }
 });
