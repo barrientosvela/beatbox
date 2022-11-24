@@ -169,7 +169,7 @@ $("#enviar").click(function () {
             'iban': iban,
             'precio': precio
         }
-        localStorage.setItem('user', JSON.stringify(user));   
+        localStorage.setItem('user', JSON.stringify(user));  
         window.location.href = "../html/pago.html";     
     }else{
         alert("Debe elegir una subscripción");

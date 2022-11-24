@@ -1,15 +1,17 @@
 var user = JSON.parse(localStorage.getItem('user'));
+$("#userPass").css("display", "none")
+$("#c1")
 
 $(document).ready(function () {
-    if (localStorage) {
-        if (user.precio != 0) {
-            window.location.href = "../html/premium.html";
-        } else {
-            window.location.href = "../html/normal.html";
+    if (localStorage != "") {
+        if (confirm("¿Quiere entrar en la sesión anterior?")){
+            $("#userPass").css({"display" : "block", "width" : "40%"})
+            $("#titulo").append("Ya hay un usuario registrado en este equipo")
+        }else{
+            window.location.href = "../index.html"; 
         }
     }
 });
-$("#titulo").append("Hola "+user.nombre);
 
 $(".btn-registro").click(() => {
     $(location).attr('href', 'html/registro.html')
