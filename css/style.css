@@ -4,6 +4,10 @@
     font-family: 'Story Brush';
     src: url('../fonts/DHF\ Story\ Brush\ Slanted.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Aaaiight';
+    src: url('../fonts/aaaiight-fat.ttf');
+}
 
 body {
     margin: 0px;

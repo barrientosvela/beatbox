@@ -1,0 +1,30 @@
+h1{
+    font-family: 'Aaaiight';
+    text-align: center;
+    font-size: 40px;
+}
+#pago{
+    width: 50%;
+    border: solid 1px;
+    margin-left: 25%;
+}
+#precio{
+    font-family: 'Aaaiight';
+    font-size: 50px;
+}
+#pago p{
+    margin-left: 50px;
+    font-size: 20px;
+}
+#imgPago{
+    float: right;
+    width: 100px;
+}
+span{
+    margin-left: 20px;
+    font-size: 20px;
+    background: none;
+}
+#atras{
+    width: 100px;
+}
