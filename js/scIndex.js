@@ -2,7 +2,7 @@ var user = JSON.parse(localStorage.getItem('user'));
 
 $(document).ready(function () {
     if (localStorage.length != 0) {
-        if (confirm("¿Quiere entrar en la sesión anterior?")){
+        if (confirm("¿Quiere entrar con el usuario anterior?")){
             $("#userPass").css("display" , "block")
             $("#btn-registro").css("display", "none")
             $("#btn-accede").click(() => {
