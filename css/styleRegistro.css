@@ -91,10 +91,13 @@ fieldset {
     margin: 25px;
 }
 
-.card p {
+.card h1 {
     font-family: 'Aaaiight';
     font-size: 40px;
-
+    margin-bottom: 0;
+}
+.card p {
+    font-size: 40px;
 }
 
 .card div {
@@ -109,6 +112,7 @@ fieldset {
     justify-content: center;
     backface-visibility: hidden;
     transition: 1s;
+    flex-flow: row wrap;
 }
 
 .card .front {

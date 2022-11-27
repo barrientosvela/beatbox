@@ -18,42 +18,38 @@
     </header>
     <form id="formCompleto">
         <fieldset id="datosPers">
-            <div class="formCamp">
-                <p>Nombre:</p>
-                <input type="text" class="campos" id="nombre" />
-                <img id="checkNombre" class="check">
-                <p>Apellidos:</p>
-                <input type="text" class="campos" id="apellidos" />
-                <img id="checkApellidos" class="check">
-                <p>Fecha de nacimiento:</p>
-                <input id="anio" type="date" class="campos" name="anio" />
-                <p>DNI:</p>
-                <input type="text" id="dni" class="campos" />
-                <img id="checkDNI" class="check">
-                <p>Email:</p>
-                <input type="mail" id="email" class="campos" placeholder="ejemplo@ejemplo.com" />
-                <img id="checkEmail" class="check">
-                <p>Teléfono:</p>
-                <input id="tlf" class="campos" type="text" name="Telefono" placeholder="999 999 999" />
-                <img id="checkTlf" class="check">
-            </div>
+            <p>Nombre:</p>
+            <input type="text" class="campos" id="nombre" />
+            <img id="checkNombre" class="check">
+            <p>Apellidos:</p>
+            <input type="text" class="campos" id="apellidos" />
+            <img id="checkApellidos" class="check">
+            <p>Fecha de nacimiento:</p>
+            <input id="anio" type="date" class="campos" name="anio" />
+            <p>DNI:</p>
+            <input type="text" id="dni" class="campos" />
+            <img id="checkDNI" class="check">
+            <p>Email:</p>
+            <input type="mail" id="email" class="campos" placeholder="ejemplo@ejemplo.com" />
+            <img id="checkEmail" class="check">
+            <p>Teléfono:</p>
+            <input id="tlf" class="campos" type="text" name="Telefono" placeholder="999 999 999" />
+            <img id="checkTlf" class="check">
             <nav class="flechas">
                 <img id="derecha1" src="../images/flecha.png" alt="flecha derecha">
             </nav>
         </fieldset>
 
         <fieldset id="credenciales">
-            <div class="formCamp">
-                <p>Usuario</p>
-                <input type="text" id="usuario" placeholder="Nombre de usuario" maxlength="40" />
-                <img id="checkUser" class="check">
-                <p>Contraseña</p>
-                <input id="password1" type="password" placeholder="Contraseña" maxlength="40" />
-                <img id="checkPass" class="check">
-                <p>Repite Contraseña</p>
-                <input id="password2" type="password" placeholder="Repite Contraseña" maxlength="40" />
-                <img id="checkPass2" class="check">
-            </div>
+            <p>Usuario</p>
+            <input type="text" id="usuario" placeholder="Nombre de usuario" maxlength="40" />
+            <img id="checkUser" class="check">
+            <p>Contraseña</p>
+            <input id="password1" type="password" placeholder="Contraseña" maxlength="40" />
+            <img id="checkPass" class="check">
+            <p>Repite Contraseña</p>
+            <input id="password2" type="password" placeholder="Repite Contraseña" maxlength="40" />
+            <img id="checkPass2" class="check">
             <nav class="flechas">
                 <img id="derecha2" src="../images/flecha.png" alt="flecha derecha">
                 <img id="atras1" src="../images/atras.png" alt="flecha izquierda">
@@ -61,15 +57,13 @@
         </fieldset>
 
         <fieldset id="cuenta">
-            <div class="formCamp">
-                <p>IBAN</p>
-                <input id="iban" type="text" placeholder="ES21 14650100722030876293" />
-                <img id="checkIban" class="check">
-                <p>SWIFT</p>
-                <input id="swift" type="text" name="SWIFT" placeholder="AAAAESMMXXX" />
-            </div>
+            <p>IBAN</p>
+            <input id="iban" type="text" placeholder="ES21 14650100722030876293" />
+            <img id="checkIban" class="check">
+            <p>SWIFT</p>
+            <input id="swift" type="text" name="SWIFT" placeholder="AAAAESMMXXX" />
             <nav class="flechas">
-                <img id="derecha3" src="../images/flecha.png" alt="flecha derecha">                
+                <img id="derecha3" src="../images/flecha.png" alt="flecha derecha">
                 <img id="atras2" src="../images/atras.png" alt="flecha izquierda">
             </nav>
         </fieldset>
@@ -81,7 +75,11 @@
                         <img id="plan1img" src="../images/basic.jpg" alt="">
                     </div>
                     <div id="plan1back" class="back">
-                        <p>principiante</p>
+                        <h1>principiante</h1>
+                        <ul>
+                            <li>Acceso limitado</li>
+                        </ul>
+                        <p>GRATIS</p>
                     </div>
                 </div>
                 <div id="plan2" class="card">
@@ -89,7 +87,12 @@
                         <img id="plan2img" src="../images/principiante.jpg" alt="">
                     </div>
                     <div id="plan2back" class="back">
-                        <p>avanzado</p>
+                        <h1>avanzado</h1>
+                        <ul>
+                            <li>Acceso ilimitado</li>
+                            <li>Notificaciones personalizadas</li>
+                        </ul>
+                        <p>2,99€ al mes</p>
                     </div>
                 </div>
                 <div id="plan3" class="card">
@@ -97,7 +100,13 @@
                         <img id="plan3img" src="../images/premium.jpg" alt="">
                     </div>
                     <div id="plan3back" class="back">
-                        <p>profesional</p>
+                        <h1>profesional</h1>
+                        <ul>
+                            <li>Acceso ilimitado</li>
+                            <li>Notificaciones personalizadas</li>
+                            <li>Creación de eventos</li>
+                        </ul>
+                        <p>19,99€ al mes</p>
                     </div>
                 </div>
             </div>
@@ -105,7 +114,6 @@
             <img id="enviar" src="../images/Enviar.png" alt="check">
         </fieldset>
     </form>
-
     <div class="footer">
         <p>Parte del texto contenido en esta web esta generado con GPT-3 un modelo IA aún en fase beta <a
                 href="https://openai.com/api/" target="_blank">Página oficial</a></p>
@@ -113,7 +121,7 @@
     </div>
     <script src="../js/funciones.js"></script>
     <script src="../js/swift.js"></script>
-    <script src="../js/scriptRegistro.js"></script>
+    <script src="../js/scRegistro.js"></script>
 </body>
 
 </html>

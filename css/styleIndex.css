@@ -12,6 +12,31 @@
     font-size: 18px;
 }
 
+#userPass {
+    display: none;
+    height: 280px;
+    width: 20%;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+#acceso{
+    width: 80%;
+    padding: 20px;
+    margin-left: 40px;
+}
+#btn-accede{
+    width: 100px;
+}
+#btn-reg{
+    float: right;
+    width: 100px;
+    margin-right: 30px;
+}
+
+#alert{
+    color: red;
+}
+
 #c1 {
     height: 300px;
     width: 300px;

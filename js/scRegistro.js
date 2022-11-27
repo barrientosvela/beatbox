@@ -148,7 +148,7 @@ $("#atras3").click(() => {
 
 $("#enviar").click(function () {
     // si campos correctos crea objeto y lo guarda en localstorage
-    if (sub != 0) {
+    if (precio != -1) {
         let nom = $("#nombre").val();
         let apellidos = $("#apellidos").val();
         let dni = $("#dni").val();
@@ -169,9 +169,9 @@ $("#enviar").click(function () {
             'iban': iban,
             'precio': precio
         }
-        localStorage.setItem('user', JSON.stringify(user));  
-        window.location.href = "../html/pago.html";     
-    }else{
+        localStorage.setItem('user', JSON.stringify(user));
+        window.location.href = "../html/pago.html";
+    } else {
         alert("Debe elegir una subscripción");
     }
 });
